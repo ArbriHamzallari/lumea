@@ -1,26 +1,357 @@
 @import "tailwindcss";
 
+/*
+ * LUMÉA DESIGN TOKENS
+ * Derived from the physical place, not a template:
+ *  paper / stone  — the ivory panelled walls and the stone façade
+ *  ink            — the dark marble floors (black with green veining)
+ *  gold / bronze  — the wings of the Luméa logo and the brass details
+ * Room colours are layered on top per room (see src/lib/color.ts).
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #faf7f2;
+  --stone-50: #f4efe7;
+  --stone-100: #ebe4d8;
+  --line: #ddd3c4;
+  --line-strong: #c9bca8;
+  --ink: #1e1b17;
+  --ink-soft: #423c35;
+  --muted: #625a50;
+  --gold: #b08d57;
+  --gold-deep: #9a7845; /* gold for large text — 3.8:1 on ivory */
+  --bronze: #7a5a2b;
+  --marble: #1a1e1c;
+  --on-marble: #ece6da;
+  --on-marble-muted: #b9b2a6;
+
+  /* Room theme defaults — overridden inside a room scope */
+  --room: var(--ink);
+  --room-pale: var(--paper);
+  --room-light: var(--stone-50);
+  --room-line: var(--line);
+  --room-accent: var(--bronze);
+  --room-dark: var(--ink);
+  --room-on: var(--paper);
+
+  --header-h: 4rem;
+  --action-h: 4.25rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-stone-50: var(--stone-50);
+  --color-stone-100: var(--stone-100);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-bronze: var(--bronze);
+  --color-marble: var(--marble);
+  --color-on-marble: var(--on-marble);
+  --color-on-marble-muted: var(--on-marble-muted);
+  --color-room: var(--room);
+  --color-room-pale: var(--room-pale);
+  --color-room-light: var(--room-light);
+  --color-room-line: var(--room-line);
+  --color-room-accent: var(--room-accent);
+  --color-room-dark: var(--room-dark);
+  --color-room-on: var(--room-on);
+
+  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-public-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px — comfortable for older readers */
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: calc(var(--action-h) + env(safe-area-inset-bottom));
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--gold) 35%, transparent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--room-accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .wrap {
+      padding-inline: 3rem;
+    }
+  }
+
+  /* Small uppercase label used above headings */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--room-accent);
+  }
+
+  .display {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 1.6rem + 3vw, 4.1rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+  .h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 1.45rem + 1.6vw, 2.75rem);
+    line-height: 1.12;
+  }
+  .h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.7rem);
+    line-height: 1.2;
+  }
+  .lede {
+    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .prose-lumea p + p {
+    margin-top: 1em;
+  }
+
+  /* Buttons: rectangular, generous, never pill-shaped */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0.75rem 1.4rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--room-dark);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--room-dark) 86%, white);
+  }
+  .btn-secondary {
+    border-color: var(--line-strong);
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn-secondary:hover {
+    border-color: var(--room-dark);
+    background: color-mix(in oklab, var(--room-dark) 5%, transparent);
+  }
+  .btn-on-dark {
+    border-color: color-mix(in oklab, var(--on-marble) 40%, transparent);
+    color: var(--on-marble);
+  }
+  .btn-on-dark:hover {
+    border-color: var(--on-marble);
+    background: color-mix(in oklab, var(--on-marble) 8%, transparent);
+  }
+
+  /* Text link with an understated underline that strengthens on hover */
+  .link {
+    color: var(--room-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: color-mix(in oklab, var(--room-accent) 45%, transparent);
+    transition: text-decoration-color 160ms ease;
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Arrow link: label + arrow that nudges on hover */
+  .arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    padding-block: 0.4rem;
+  }
+  .arrow-link svg {
+    transition: transform 200ms ease;
+  }
+  .arrow-link:hover svg {
+    transform: translateX(3px);
+  }
+  .arrow-link:hover span {
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  /*
+   * The inlay frame — taken from Luméa's own floors, where white marble is
+   * bordered by an inset band of dark marble. Used on key photographs.
+   */
+  .inlay {
+    position: relative;
+    isolation: isolate;
+  }
+  .inlay::after {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 1px solid rgb(255 255 255 / 0.55);
+    pointer-events: none;
+    z-index: 1;
+  }
+  @media (min-width: 768px) {
+    .inlay::after {
+      inset: 1.1rem;
+    }
+  }
+
+  .hairline {
+    border-color: var(--room-line);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion — gentle, short, and off for anyone who prefers less         */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Room colours are registered properties so they can interpolate: when the
+ * visitor moves from one room to the next, every tint, border and accent on
+ * the page shifts together — like walking from one room into another.
+ */
+@property --room {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1e1b17;
+}
+@property --room-pale {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #faf7f2;
+}
+@property --room-light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4efe7;
+}
+@property --room-line {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ddd3c4;
+}
+@property --room-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7a5a2b;
+}
+@property --room-dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1e1b17;
+}
+
+.room-scope {
+  background-color: var(--room-pale);
+  transition:
+    --room 650ms cubic-bezier(0.2, 0, 0, 1),
+    --room-pale 650ms cubic-bezier(0.2, 0, 0, 1),
+    --room-light 650ms cubic-bezier(0.2, 0, 0, 1),
+    --room-line 650ms cubic-bezier(0.2, 0, 0, 1),
+    --room-accent 650ms cubic-bezier(0.2, 0, 0, 1),
+    --room-dark 650ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.enter {
+  animation: fade-up 520ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+.enter-delay {
+  animation-delay: 90ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
