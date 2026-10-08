@@ -12,8 +12,8 @@ export const galleryGroups: GalleryGroup[] = [
     id: "jashte",
     title: { sq: "Hyrja dhe godina", en: "The entrance and building" },
     intro: {
-      sq: "Luméa ndodhet në një godinë njëkatëshe në Rrugën Transballkanike, pranë ish Hipotekës.",
-      en: "Luméa is in a single-storey building on Rruga Transballkanike, near ish Hipoteka.",
+      sq: "Luméa ndodhet në një godinë njëkatëshe në Rrugën Transballkanike, pranë ish-Hipotekës.",
+      en: "Luméa is in a single-storey building on Rruga Transballkanike, near the former Hipoteka building.",
     },
     items: [photos.entranceNight, photos.facadeDay, photos.facadeHearse, photos.entranceDoor, photos.facadeDuskVehicles],
   },

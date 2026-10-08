@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { business, telHref } from "@/content/business";
 import { t } from "@/content/dictionary";
 import { href } from "@/lib/i18n";
+
+export const metadata: Metadata = { title: "Faqja nuk u gjet | Luméa Funeral Home Vlorë" };
 
 export default function NotFound() {
   const d = t("sq");

@@ -31,7 +31,7 @@ export const business = {
 
   address: {
     street: "Rruga Transballkanike",
-    landmark: { sq: "pranë ish Hipotekës", en: "near ish Hipoteka" },
+    landmark: { sq: "pranë ish-Hipotekës", en: "near the former Hipoteka building" },
     city: "Vlorë",
     postalCode: "9401",
     country: { sq: "Shqipëri", en: "Albania" },
@@ -64,7 +64,7 @@ export const business = {
 
 export const phonePrimary = business.phones[0];
 
-/** Capitalise the first letter — for the landmark when it starts a line ("Pranë ish Hipotekës"). */
+/** Capitalise the first letter — for the landmark when it starts a line ("Pranë ish-Hipotekës"). */
 export const capFirst = (s: string) => s.charAt(0).toLocaleUpperCase("sq-AL") + s.slice(1);
 
 export function telHref(e164: string) {

@@ -18,8 +18,8 @@ const copy = {
     en: "Luméa Funeral Home has four reception rooms and other facilities dedicated to funeral services.",
   },
   lede2: {
-    sq: "Shikoni fotografitë e ambienteve për të krijuar një ide të qartë për hapësirën tonë para se të na vizitoni.",
-    en: "Browse the photographs to get a clear idea of the space before you visit.",
+    sq: "Shikoni fotografitë për të pasur një ide më të qartë për ambientet para se të na vizitoni.",
+    en: "Look through the photographs to get a clearer idea of the facilities before you visit.",
   },
   otherSpaces: { sq: "Ambiente të tjera", en: "Other spaces" },
   visitTitle: { sq: "Vizitoni ambientet", en: "Visit the facilities" },

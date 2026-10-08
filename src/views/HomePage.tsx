@@ -24,12 +24,8 @@ const copy = {
   h1b: { sq: "në Vlorë,", en: "in Vlorë," },
   h1c: { sq: "24 orë në ditë", en: "24 hours a day" },
   lede: {
-    sq: "Luméa Funeral Home ju ndihmon me organizimin e ceremonisë funerale, ambientet e pritjes, kujdesin për të ndjerin, transportin brenda dhe jashtë vendit dhe dokumentacionin.",
-    en: "Luméa Funeral Home helps with arranging the funeral ceremony, reception rooms, care of the deceased, transport within Albania and abroad, and paperwork.",
-  },
-  lede2: {
-    sq: "Gjithçka në një vend, me shërbim të disponueshëm 24/7.",
-    en: "Everything in one place, available 24/7.",
+    sq: "Luméa Funeral Home ju ndihmon me organizimin e ceremonisë funerale, ofron salla pritjeje dhe kujdes për të ndjerin, si dhe transport brenda dhe jashtë vendit dhe ndihmë me dokumentacionin.",
+    en: "Luméa Funeral Home helps you arrange the funeral ceremony and provides reception rooms, care of the deceased, transport within Albania and abroad, and help with paperwork.",
   },
 
   servicesTitle: { sq: "Shërbime funerale të plota", en: "Complete funeral services" },
@@ -45,12 +41,8 @@ const copy = {
 
   oneTitle: { sq: "Gjithçka që ju nevojitet, në një vend", en: "Everything you need, in one place" },
   oneBody: {
-    sq: "Luméa Funeral Home bashkon ambientet e pritjes, shërbimet për të ndjerin, transportin dhe asistencën me dokumentacionin në një strukturë të vetme.",
-    en: "Luméa Funeral Home brings the reception rooms, care of the deceased, transport and help with paperwork together in one place.",
-  },
-  oneBody2: {
-    sq: "Jemi në dispozicion 24 orë në ditë, 7 ditë në javë.",
-    en: "We are available 24 hours a day, 7 days a week.",
+    sq: "Sallat e pritjes dhe ambientet për kujdesin ndaj të ndjerit ndodhen në të njëjtën godinë. Ceremonia, transporti dhe dokumentacioni ndiqen nga i njëjti vend, ndaj familja ka një pikë të vetme kontakti.",
+    en: "The reception rooms and the facilities for the care of the deceased are in the same building. The ceremony, transport and paperwork are arranged from the same place, so the family has a single point of contact.",
   },
 
   roomsTitle: { sq: "Ambientet e Luméa", en: "Luméa’s facilities" },
@@ -69,10 +61,6 @@ const copy = {
   },
 
   locationTitle: { sq: "Na gjeni në Vlorë", en: "Find us in Vlorë" },
-  locationBody: {
-    sq: "Luméa Funeral Home ndodhet në Rrugën Transballkanike, pranë ish Hipotekës.",
-    en: "Luméa Funeral Home is on Rruga Transballkanike, near ish Hipoteka.",
-  },
 } satisfies Record<string, L>;
 
 export function HomePage({ locale }: { locale: Locale }) {
@@ -90,7 +78,6 @@ export function HomePage({ locale }: { locale: Locale }) {
               <span className="block">{c("h1")}</span> <span className="block">{c("h1b")}</span> <span className="block">{c("h1c")}</span>
             </h1>
             <p className="lede mt-6 max-w-xl">{c("lede")}</p>
-            <p className="lede mt-3 max-w-xl">{c("lede2")}</p>
             <CallButtons locale={locale} className="mt-8" />
             <a href="#vendndodhja" className="mt-6 inline-flex items-start gap-2 self-start text-[0.98rem] text-ink-soft hover:text-ink">
               <IconPin className="mt-0.5 size-5 shrink-0 text-bronze" />
@@ -153,7 +140,6 @@ export function HomePage({ locale }: { locale: Locale }) {
           </h2>
           <div className="lg:col-span-6 lg:col-start-7">
             <p className="text-[1.1rem] leading-[1.7]">{c("oneBody")}</p>
-            <p className="mt-3 text-[1.1rem] leading-[1.7]">{c("oneBody2")}</p>
             <Link href={href("contact", locale)} className="btn btn-secondary mt-8">
               {d.talkToUs}
             </Link>
@@ -226,7 +212,6 @@ export function HomePage({ locale }: { locale: Locale }) {
                 {a.city} {a.postalCode}
               </span>
             </address>
-            <p className="mt-5 max-w-md">{c("locationBody")}</p>
             <a href={business.googleMapsUrl} target="_blank" rel="noopener" className="btn btn-primary mt-8">
               {d.openMaps}
             </a>

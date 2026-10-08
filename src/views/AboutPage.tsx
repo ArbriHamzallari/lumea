@@ -13,11 +13,11 @@ import { Breadcrumbs, ContactStrip } from "@/components/Blocks";
 const copy = {
   h1: { sq: "Rreth Luméa", en: "About Luméa" },
   p1: {
-    sq: "Luméa Funeral Home është një shtëpi funerale në Vlorë, e vendosur në Rrugën Transballkanike, pranë ish Hipotekës.",
-    en: "Luméa Funeral Home is a funeral home in Vlorë, on Rruga Transballkanike near ish Hipoteka.",
+    sq: "Luméa Funeral Home është një shtëpi funerale në Vlorë, e vendosur në Rrugën Transballkanike, pranë ish-Hipotekës.",
+    en: "Luméa Funeral Home is a funeral home in Vlorë, on Rruga Transballkanike near the former Hipoteka building.",
   },
   p2: {
-    sq: "Ne ofrojmë shërbime funerale, ambiente pritjeje, kujdes për të ndjerin, transport funeral dhe asistencë me dokumentacionin.",
+    sq: "Ne ofrojmë shërbime funerale, salla pritjeje, kujdes për të ndjerin, transport funeral dhe ndihmë me dokumentacionin.",
     en: "We provide funeral services, reception rooms, care of the deceased, funeral transport and help with paperwork.",
   },
   p3: {

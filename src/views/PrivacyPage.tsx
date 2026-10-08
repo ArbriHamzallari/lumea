@@ -10,20 +10,20 @@ import { Breadcrumbs } from "@/components/Blocks";
 const content = {
   sq: {
     h1: "Privatësia",
-    intro: `Kjo faqe përdoret nga ${business.name} për të dhënë informacion dhe për ta bërë kontaktin më të lehtë. Ne përpiqemi të mbledhim sa më pak të dhëna të jetë e nevojshme për funksionimin e faqes.`,
+    intro: `Kjo faqe përdoret nga ${business.name} për t’ju dhënë informacion dhe për ta bërë më të lehtë kontaktin me ne. Faqja nuk ka formularë dhe nuk ju kërkon të dhëna personale.`,
     sections: [
       { h: "Çfarë nuk mbledhim", p: "Faqja nuk përdor cookies për reklama ose statistika dhe nuk krijon llogari përdoruesi." },
       {
         h: "WhatsApp",
-        p: "Faqja nuk ka formular kontakti dhe nuk ruan mesazhe. Butonat e WhatsApp hapin aplikacionin dhe ju vendosni nëse do të dërgoni mesazh. Pasi ta dërgoni, mesazhi trajtohet sipas kushteve të WhatsApp.",
+        p: "Butonat e WhatsApp hapin aplikacionin dhe ju vendosni nëse do të dërgoni mesazh. Faqja nuk i ruan mesazhet; pasi ta dërgoni, mesazhi trajtohet sipas kushteve të WhatsApp.",
       },
       {
         h: "Harta",
-        p: "Harta e Google nuk ngarkohet automatikisht. Ajo shfaqet vetëm kur zgjidhni “Shfaq hartën”. Në atë moment Google mund të vendosë cookies ose të përpunojë të dhëna sipas politikave të veta.",
+        p: "Harta e Google nuk ngarkohet automatikisht. Ajo shfaqet vetëm kur zgjidhni “Shfaqni hartën”. Në atë moment Google mund të vendosë cookies ose të përpunojë të dhëna sipas politikave të veta.",
       },
       {
         h: "Lidhjet e jashtme",
-        p: "Lidhjet për telefonin, WhatsApp, Google Maps dhe Instagram të çojnë në shërbime të palëve të treta, të cilat kanë politikat e tyre të privatësisë.",
+        p: "Lidhjet e jashtme, përfshirë WhatsApp, Google Maps, Facebook dhe Instagram, ju drejtojnë te shërbime të palëve të treta, të cilat kanë politikat e tyre të privatësisë.",
       },
       { h: "Njoftime për të ndjerët", p: "Kjo faqe nuk publikon të dhëna personale për të ndjerët ose familjet e tyre." },
     ],
@@ -31,12 +31,12 @@ const content = {
   },
   en: {
     h1: "Privacy",
-    intro: `This website is used by ${business.name} to provide information and make it easier to get in touch. We aim to collect as little data as necessary for the website to function.`,
+    intro: `This website is used by ${business.name} to give you information and make it easier to contact us. The website has no forms and does not ask you for personal data.`,
     sections: [
       { h: "What we do not collect", p: "The website does not use advertising or analytics cookies and does not create user accounts." },
       {
         h: "WhatsApp",
-        p: "The website has no contact form and does not store messages. The WhatsApp buttons open the app and you decide whether to send a message. Once sent, the message is handled under WhatsApp’s terms.",
+        p: "The WhatsApp buttons open the app and you decide whether to send a message. The website does not store messages; once sent, a message is handled under WhatsApp’s terms.",
       },
       {
         h: "The map",
@@ -44,7 +44,7 @@ const content = {
       },
       {
         h: "External links",
-        p: "Links to the phone, WhatsApp, Google Maps and Instagram lead to third-party services that have their own privacy policies.",
+        p: "External links, including WhatsApp, Google Maps, Facebook and Instagram, take you to third-party services that have their own privacy policies.",
       },
       { h: "Notices about the deceased", p: "This website does not publish personal information about the deceased or their families." },
     ],

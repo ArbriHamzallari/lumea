@@ -43,13 +43,13 @@ export const services: Service[] = [
     shortTitle: { sq: "Organizimi i ceremonisë", en: "Funeral arrangements" },
     title: { sq: "Organizimi i ceremonisë", en: "Funeral arrangements" },
     summary: {
-      sq: "Organizimi dhe koordinimi i ceremonisë funerale dhe pritjes së ngushëllimeve.",
-      en: "Organising and coordinating the funeral ceremony and the receiving of condolences.",
+      sq: "Organizimi dhe koordinimi i ceremonisë funerale dhe i pritjes së ngushëllimeve.",
+      en: "Organising and coordinating the funeral ceremony and receiving condolences.",
     },
     body: [
       {
-        sq: "Luméa ju ndihmon me organizimin dhe koordinimin e ceremonisë funerale dhe pritjes së ngushëllimeve.",
-        en: "Luméa helps you organise and coordinate the funeral ceremony and the receiving of condolences.",
+        sq: "Luméa ju ndihmon me organizimin dhe koordinimin e ceremonisë funerale dhe të pritjes së ngushëllimeve.",
+        en: "Luméa helps you organise and coordinate the funeral ceremony and receiving condolences.",
       },
       {
         sq: "Mund të na kontaktoni që në fillim të procesit për të diskutuar hapat dhe shërbimet që ju nevojiten.",
@@ -68,12 +68,12 @@ export const services: Service[] = [
     faqIds: ["rooms", "hours", "prices"],
     related: ["kujdesi", "transporti", "dokumentacioni"],
     seoTitle: {
-      sq: "Organizimi i Ceremonisë Funerale | Luméa Funeral Home Vlorë",
+      sq: "Organizimi i ceremonisë funerale | Luméa Funeral Home Vlorë",
       en: "Funeral Arrangements in Vlorë | Luméa Funeral Home",
     },
     seoDescription: {
-      sq: "Organizimi dhe koordinimi i ceremonisë funerale dhe pritjes së ngushëllimeve në Vlorë. Luméa Funeral Home, e hapur 24/7.",
-      en: "Organising and coordinating the funeral ceremony and the receiving of condolences in Vlorë. Luméa Funeral Home, open 24/7.",
+      sq: "Organizimi dhe koordinimi i ceremonisë funerale dhe i pritjes së ngushëllimeve në Vlorë. Luméa Funeral Home, e hapur 24/7.",
+      en: "Organising and coordinating the funeral ceremony and receiving condolences in Vlorë. Luméa Funeral Home, open 24/7.",
     },
   },
   {
@@ -105,7 +105,7 @@ export const services: Service[] = [
     faqIds: ["care", "hours"],
     related: ["organizimi", "transporti"],
     seoTitle: {
-      sq: "Kujdesi për të Ndjerin | Luméa Funeral Home Vlorë",
+      sq: "Kujdesi për të ndjerin | Luméa Funeral Home Vlorë",
       en: "Care of the Deceased | Luméa Funeral Home Vlorë",
     },
     seoDescription: {
@@ -128,7 +128,7 @@ export const services: Service[] = [
         en: "Luméa provides funeral transport within Albania and internationally.",
       },
       {
-        sq: "Për rastet nga jashtë Shqipërisë, ofrojmë edhe asistencë për riatdhesimin dhe procedurat përkatëse.",
+        sq: "Për rastet nga jashtë Shqipërisë, ofrojmë edhe ndihmë për riatdhesimin dhe procedurat përkatëse.",
         en: "For cases from outside Albania, we also help with repatriation and the related procedures.",
       },
       {
@@ -140,13 +140,13 @@ export const services: Service[] = [
     includes: [
       { sq: "Transport funeral brenda Shqipërisë", en: "Funeral transport within Albania" },
       { sq: "Transport funeral ndërkombëtar", en: "International funeral transport" },
-      { sq: "Asistencë për riatdhesimin dhe procedurat përkatëse", en: "Help with repatriation and the related procedures" },
+      { sq: "Ndihmë për riatdhesimin dhe procedurat përkatëse", en: "Help with repatriation and the related procedures" },
     ],
     photos: [photos.hearseWithCoffin, photos.twoHearses, photos.hearseNight, photos.fleet],
     faqIds: ["abroad", "documents"],
     related: ["dokumentacioni", "organizimi"],
     seoTitle: {
-      sq: "Transport Funeral në Shqipëri dhe Jashtë Vendit | Luméa",
+      sq: "Transport funeral në Shqipëri dhe jashtë vendit | Luméa",
       en: "Funeral Transport in Albania and Abroad | Luméa",
     },
     seoDescription: {
@@ -187,7 +187,7 @@ export const services: Service[] = [
     faqIds: ["documents", "abroad"],
     related: ["organizimi", "transporti"],
     seoTitle: {
-      sq: "Dokumentacion dhe Procedura Funerale | Luméa",
+      sq: "Dokumentacioni dhe procedurat funerale | Luméa",
       en: "Funeral Paperwork and Procedures | Luméa",
     },
     seoDescription: {
@@ -201,17 +201,13 @@ export const services: Service[] = [
     shortTitle: { sq: "Arkivole dhe aksesorë", en: "Coffins and accessories" },
     title: { sq: "Arkivole dhe aksesorë", en: "Coffins and accessories" },
     summary: {
-      sq: "Larmishmëri arkivolesh të cilësisë italiane, me çmime të ndryshme dhe të arsyeshme.",
-      en: "A wide range of Italian-quality coffins, at different and reasonable prices.",
+      sq: "Ofrojmë arkivole në modele dhe çmime të ndryshme, si dhe aksesorë për ceremoninë.",
+      en: "We offer coffins in a range of styles and prices, along with accessories for the ceremony.",
     },
     body: [
       {
-        sq: "Luméa ofron arkivole në modele të ndryshme, së bashku me aksesorët e nevojshëm për ceremoninë.",
-        en: "Luméa offers coffins in a range of styles, together with the accessories needed for the ceremony.",
-      },
-      {
-        sq: "Kemi larmishmëri arkivolesh të cilësisë italiane, me çmime të ndryshme dhe të arsyeshme.",
-        en: "We have a wide range of Italian-quality coffins, at different and reasonable prices.",
+        sq: "Ofrojmë arkivole në modele dhe çmime të ndryshme, si dhe aksesorë për ceremoninë.",
+        en: "We offer coffins in a range of styles and prices, along with accessories for the ceremony.",
       },
       {
         sq: "Për modelet dhe informacionin mbi çmimet, na kontaktoni.",
@@ -220,20 +216,19 @@ export const services: Service[] = [
     ],
     cta: "contact",
     includes: [
-      { sq: "Arkivole të cilësisë italiane, në modele të ndryshme", en: "Italian-quality coffins in a range of styles" },
-      { sq: "Çmime të ndryshme dhe të arsyeshme", en: "Different and reasonable prices" },
+      { sq: "Arkivole në modele dhe çmime të ndryshme", en: "Coffins in a range of styles and prices" },
       { sq: "Aksesorë për ceremoninë", en: "Accessories for the ceremony" },
     ],
     photos: [photos.coffinDisplay, photos.coffinFlowersBeata],
     faqIds: ["coffins", "prices"],
     related: ["organizimi", "transporti"],
     seoTitle: {
-      sq: "Arkivole dhe Aksesorë | Luméa Funeral Home Vlorë",
+      sq: "Arkivole dhe aksesorë | Luméa Funeral Home Vlorë",
       en: "Coffins and Accessories | Luméa Funeral Home Vlorë",
     },
     seoDescription: {
-      sq: "Arkivole të cilësisë italiane në modele të ndryshme, me çmime të ndryshme dhe të arsyeshme, dhe aksesorë për ceremoninë. Luméa, Vlorë.",
-      en: "Italian-quality coffins in a range of styles, at different and reasonable prices, with accessories for the ceremony. Luméa, Vlorë.",
+      sq: "Arkivole në modele dhe çmime të ndryshme, si dhe aksesorë për ceremoninë. Për modelet dhe çmimet, kontaktoni Luméa Funeral Home në Vlorë.",
+      en: "Coffins in a range of styles and prices, along with accessories for the ceremony. For models and prices, contact Luméa Funeral Home in Vlorë.",
     },
   },
 ];

@@ -5,7 +5,7 @@ import { rooms } from "@/content/rooms";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Funeral Home in Vlorë | Luméa’s Facilities",
+  title: "Luméa’s Facilities | Funeral Home in Vlorë",
   description: "Four reception rooms, a lobby and dedicated facilities for funeral services. See photographs of Luméa Funeral Home in Vlorë.",
   paths: routes.rooms,
   image: rooms[3].hero,

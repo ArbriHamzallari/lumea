@@ -7,7 +7,7 @@ import type { Locale } from "@/lib/i18n";
  * Maps", "Mësoni më shumë".
  */
 const sq = {
-  skip: "Kalo te përmbajtja",
+  skip: "Kaloni te përmbajtja",
   nav: {
     home: "Kryefaqja",
     services: "Shërbimet",
@@ -18,7 +18,7 @@ const sq = {
     privacy: "Privatësia",
   },
   menu: "Menuja",
-  closeMenu: "Mbyll menunë",
+  closeMenu: "Mbyllni menunë",
   mainNav: "Navigimi kryesor",
   langLabel: "Gjuha",
   switchTo: "Shikojeni këtë faqe në anglisht",
@@ -26,7 +26,7 @@ const sq = {
   // Calls to action
   call: "Telefononi",
   callNow: "Telefononi tani",
-  callShort: "Telefono",
+  callShort: "Telefononi",
   whatsapp: "WhatsApp",
   writeWhatsapp: "Na shkruani në WhatsApp",
   contactUs: "Na kontaktoni",
@@ -52,7 +52,7 @@ const sq = {
   actionBar: "Kontakt i shpejtë",
 
   footerLine1: "Shërbime funerale në Vlorë, të disponueshme 24 orë në ditë, 7 ditë në javë.",
-  footerLine2: "Organizim ceremonie, ambiente pritjeje, kujdes për të ndjerin, transport funeral dhe asistencë me dokumentacionin.",
+  footerLine2: "Organizim ceremonie, salla pritjeje, kujdes për të ndjerin, transport funeral dhe ndihmë me dokumentacionin.",
   footerNav: "Faqet",
   footerContact: "Kontakt",
   rights: "Të gjitha të drejtat e rezervuara.",
@@ -61,7 +61,7 @@ const sq = {
 
   gallery: {
     open: "Hapni fotografinë",
-    close: "Mbyll",
+    close: "Mbyllni",
     prev: "Fotografia e mëparshme",
     next: "Fotografia tjetër",
     counter: "{i} nga {n}",
@@ -69,7 +69,7 @@ const sq = {
   },
   map: {
     title: "Harta e vendndodhjes së Luméa",
-    load: "Shfaq hartën",
+    load: "Shfaqni hartën",
     note: "Harta ngarkohet vetëm kur zgjidhni ta hapni.",
   },
   room: {

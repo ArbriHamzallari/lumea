@@ -6,9 +6,9 @@ import { SiteShell } from "@/components/SiteShell";
 import { business, telHref } from "@/content/business";
 import { t } from "@/content/dictionary";
 
+// Next.js adds the noindex robots tag to 404 responses itself.
 export const metadata: Metadata = {
   title: "Faqja nuk u gjet | Luméa Funeral Home Vlorë",
-  robots: { index: false, follow: true },
 };
 
 export default function GlobalNotFound() {

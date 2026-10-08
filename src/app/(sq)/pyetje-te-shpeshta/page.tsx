@@ -5,7 +5,7 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Pyetje të Shpeshta | Luméa Funeral Home Vlorë",
+  title: "Pyetje të shpeshta | Luméa Funeral Home Vlorë",
   description: "Përgjigje për orarin, kontaktin, sallat e pritjes, kujdesin për të ndjerin, transportin funeral, dokumentacionin, arkivolet dhe çmimet.",
   paths: routes.faq,
   image: photos.lobbyMural,

@@ -5,7 +5,7 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Shërbimet Funerale të Luméa | Vlorë",
+  title: "Shërbimet funerale të Luméa | Vlorë",
   description: "Organizimi i ceremonisë, kujdesi për të ndjerin, transport funeral në Shqipëri dhe jashtë vendit, dokumentacioni dhe arkivolet. Luméa Funeral Home, Vlorë.",
   paths: routes.services,
   image: photos.hearseWithCoffin,

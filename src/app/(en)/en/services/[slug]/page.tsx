@@ -5,7 +5,8 @@ import { ServicePage } from "@/views/ServicePage";
 import { buildMetadata } from "@/lib/seo";
 import { childHref } from "@/lib/i18n";
 
-export const dynamicParams = false;
+// Unknown slugs render on request and call notFound(), so they get the English 404 page.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug.en }));

@@ -30,10 +30,10 @@ export const faqs: Faq[] = [
   },
   {
     id: "location",
-    q: { sq: "Ku ndodheni?", en: "Where are you?" },
+    q: { sq: "Ku ndodhet Luméa Funeral Home?", en: "Where is Luméa Funeral Home located?" },
     a: {
-      sq: "Na gjeni në Rrugën Transballkanike, pranë ish Hipotekës, Vlorë 9401.",
-      en: "On Rruga Transballkanike, near ish Hipoteka, Vlorë 9401.",
+      sq: "Luméa Funeral Home ndodhet në Rrugën Transballkanike, pranë ish-Hipotekës, Vlorë 9401.",
+      en: "On Rruga Transballkanike, near the former Hipoteka building, Vlorë 9401.",
     },
     link: { route: "contact", label: { sq: "Harta dhe udhëzimet", en: "Map and directions" } },
   },
@@ -73,8 +73,8 @@ export const faqs: Faq[] = [
     id: "coffins",
     q: { sq: "A ofroni arkivole?", en: "Do you provide coffins?" },
     a: {
-      sq: "Po. Kemi larmishmëri arkivolesh të cilësisë italiane, me çmime të ndryshme dhe të arsyeshme, si dhe aksesorë për ceremoninë.",
-      en: "Yes. We have a wide range of Italian-quality coffins, at different and reasonable prices, as well as accessories for the ceremony.",
+      sq: "Po. Ofrojmë arkivole në modele dhe çmime të ndryshme, si dhe aksesorë për ceremoninë.",
+      en: "Yes. We offer coffins in a range of styles and prices, as well as accessories for the ceremony.",
     },
   },
   {
@@ -90,8 +90,8 @@ export const faqs: Faq[] = [
     id: "prices",
     q: { sq: "A i publikoni çmimet në website?", en: "Do you publish prices on the website?" },
     a: {
-      sq: "Jo. Çmimi varet nga shërbimet që kërkohen dhe nga rasti konkret. Për informacion mbi koston, na telefononi dhe do t’ju tregojmë opsionet përkatëse.",
-      en: "No. The price depends on the services needed and on the individual case. For information about costs, call us and we will explain the options.",
+      sq: "Jo. Çmimi varet nga shërbimet që kërkoni dhe nga rrethanat konkrete. Ju lutemi, na kontaktoni për të diskutuar nevojat tuaja dhe për të marrë informacion mbi kostot.",
+      en: "No. The price depends on the services you need and the specific circumstances. Please contact us to discuss your needs and to get information about costs.",
     },
   },
 ];

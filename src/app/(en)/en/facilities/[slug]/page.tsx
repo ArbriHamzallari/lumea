@@ -5,7 +5,8 @@ import { RoomPage } from "@/views/RoomPage";
 import { buildMetadata } from "@/lib/seo";
 import { childHref } from "@/lib/i18n";
 
-export const dynamicParams = false;
+// Unknown slugs render on request and call notFound(), so they get the English 404 page.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return rooms.map((r) => ({ slug: r.slug.en }));
