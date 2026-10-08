@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Contact and location | Luméa Funeral Home Vlorë",
-  description: "Call Luméa on +355 69 35 000 40 or +355 69 35 000 41, 24 hours a day. Rruga Transballkanike, near ish Hipoteka, Vlorë 9401.",
+  title: "Contact | Luméa Funeral Home Vlorë",
+  description: "Call +355 69 35 000 40 or +355 69 35 000 41, or message us on WhatsApp. Available 24/7. Rruga Transballkanike, near ish Hipoteka, Vlorë.",
   paths: routes.contact,
   image: photos.entranceNight,
 });

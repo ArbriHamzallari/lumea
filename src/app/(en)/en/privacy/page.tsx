@@ -5,7 +5,7 @@ import { routes } from "@/lib/i18n";
 export const metadata = buildMetadata({
   locale: "en",
   title: "Privacy | Luméa Funeral Home Vlorë",
-  description: "Information about how the Luméa website handles data, the contact form, the map and links to third-party services.",
+  description: "How the Luméa website handles privacy: no analytics cookies, no form that stores data, and a map that loads only when you open it.",
   paths: routes.privacy,
 });
 

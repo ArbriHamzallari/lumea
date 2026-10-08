@@ -1,26 +1,29 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { t } from "@/content/dictionary";
-import { photos } from "@/content/images";
 import { rooms } from "@/content/rooms";
 import { services } from "@/content/services";
 import { themeToCssVars } from "@/lib/color";
 import { childHref, href, type L, type Locale } from "@/lib/i18n";
 import { Photo } from "@/components/Photo";
-import { Breadcrumbs, ContactStrip, Steps } from "@/components/Blocks";
+import { Breadcrumbs, ContactStrip } from "@/components/Blocks";
 import { IconArrow } from "@/components/Icons";
 
 const copy = {
-  h1: { sq: "Shërbimet e Luméa", en: "Luméa’s services" },
+  h1: { sq: "Shërbimet funerale të Luméa", en: "Luméa’s funeral services" },
   lede: {
-    sq: "Luméa ju ndihmon me organizimin e funeralit në Vlorë: sallën e pritjes, përgatitjen e të ndjerit, transportin brenda dhe jashtë vendit, arkivolin dhe dokumentet. Mund të na drejtoheni për të gjithë shërbimin ose vetëm për pjesën që ju nevojitet.",
-    en: "Luméa helps arrange funerals in Vlorë, including the reception room, preparation of the deceased, transport within Albania and abroad, the coffin and paperwork. You can come to us for the full service or only for the part you need.",
+    sq: "Luméa Funeral Home ofron shërbime funerale në Vlorë dhe transport funeral brenda dhe jashtë Shqipërisë.",
+    en: "Luméa Funeral Home provides funeral services in Vlorë and funeral transport within Albania and abroad.",
   },
-  roomsTitle: { sq: "Sallat e pritjes", en: "Reception rooms" },
+  lede2: {
+    sq: "Mund të na kontaktoni për organizimin e plotë të ceremonisë ose vetëm për shërbimin që ju nevojitet.",
+    en: "You can contact us to arrange the whole funeral or only the service you need.",
+  },
+  roomsTitle: { sq: "Salla pritjeje", en: "Reception rooms" },
   roomsBody: {
-    sq: "Katër salla për pritjen e ngushëllimeve dhe homazhet. Shikoni fotografitë dhe detajet e secilës sallë.",
-    en: "Four rooms for receiving condolences and paying respects. See photographs and details of each room.",
+    sq: "Luméa ka katër salla pritjeje të dedikuara për ceremonitë dhe pritjen e ngushëllimeve.",
+    en: "Luméa has four reception rooms for ceremonies and receiving condolences.",
   },
-  stepsTitle: { sq: "Si fillon", en: "How it starts" },
 } satisfies Record<string, L>;
 
 export function ServicesPage({ locale }: { locale: Locale }) {
@@ -31,13 +34,17 @@ export function ServicesPage({ locale }: { locale: Locale }) {
         <Breadcrumbs locale={locale} items={[{ name: d.nav.services }]} />
         <div className="mt-10 grid gap-8 lg:grid-cols-12">
           <h1 className="display lg:col-span-6">{copy.h1[locale]}</h1>
-          <p className="lede lg:col-span-6 lg:pt-3">{copy.lede[locale]}</p>
+          <div className="lg:col-span-6 lg:pt-3">
+            <p className="lede">{copy.lede[locale]}</p>
+            <p className="lede mt-3">{copy.lede2[locale]}</p>
+          </div>
         </div>
       </header>
 
-      <ol className="border-t border-line">
+      <ul className="border-t border-line">
         {services.map((s, i) => {
           const flip = i % 2 === 1;
+          const detail = childHref("services", s.slug, locale);
           return (
             <li key={s.id} className="border-b border-line">
               <article className="wrap grid items-center gap-8 py-12 md:py-16 lg:grid-cols-12 lg:gap-14">
@@ -47,27 +54,25 @@ export function ServicesPage({ locale }: { locale: Locale }) {
                   </div>
                 </div>
                 <div className={`lg:col-span-6 ${flip ? "lg:order-1" : "lg:col-start-7"}`}>
-                  <span className="font-serif text-3xl text-gold-deep" aria-hidden>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="h2 mt-2">
-                    <Link href={childHref("services", s.slug, locale)} className="hover:text-bronze">
+                  <h2 className="h2">
+                    <Link href={detail} className="hover:text-bronze">
                       {s.title[locale]}
                     </Link>
                   </h2>
-                  <p className="mt-4 max-w-xl text-[1.05rem]">{(s.pageSummary ?? s.summary)[locale]}</p>
-                  <ul className="mt-5 space-y-1.5 text-[0.98rem] text-ink-soft">
-                    {(s.listIncludes ?? s.includes).slice(0, 3).map((x) => (
-                      <li key={x.en} className="flex gap-3">
-                        <span aria-hidden className="mt-[0.65rem] h-px w-3 shrink-0 bg-gold" />
-                        {x[locale]}
-                      </li>
+                  <div className="mt-4 max-w-xl space-y-3 text-[1.05rem]">
+                    {s.body.map((p) => (
+                      <p key={p.en}>{p[locale]}</p>
                     ))}
-                  </ul>
-                  <Link href={childHref("services", s.slug, locale)} className="arrow-link mt-6">
-                    <span>{locale === "sq" ? "Shikoni shërbimin" : "View the service"}</span>
-                    <IconArrow />
-                  </Link>
+                  </div>
+                  <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-4">
+                    <Link href={href("contact", locale)} className="btn btn-primary">
+                      {s.cta === "talk" ? d.talkToUs : d.contactUs}
+                    </Link>
+                    <Link href={detail} className="arrow-link">
+                      <span>{d.learnMore}</span>
+                      <IconArrow />
+                    </Link>
+                  </div>
                 </div>
               </article>
             </li>
@@ -80,7 +85,7 @@ export function ServicesPage({ locale }: { locale: Locale }) {
             <div className="lg:col-span-5">
               <ul className="grid grid-cols-4 gap-1.5">
                 {rooms.map((r) => (
-                  <li key={r.id} style={themeToCssVars(r.theme) as React.CSSProperties}>
+                  <li key={r.id} style={themeToCssVars(r.theme) as CSSProperties}>
                     <Link href={childHref("rooms", r.slug, locale)} className="group block">
                       <div className="relative aspect-[3/5] overflow-hidden bg-stone-100">
                         <Photo photo={r.cover} locale={locale} fill sizes="12vw" className="object-cover" />
@@ -93,27 +98,15 @@ export function ServicesPage({ locale }: { locale: Locale }) {
               </ul>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
-              <span className="font-serif text-3xl text-gold-deep" aria-hidden>
-                {String(services.length + 1).padStart(2, "0")}
-              </span>
-              <h2 className="h2 mt-2">{copy.roomsTitle[locale]}</h2>
+              <h2 className="h2">{copy.roomsTitle[locale]}</h2>
               <p className="mt-4 max-w-xl text-[1.05rem]">{copy.roomsBody[locale]}</p>
-              <Link href={href("rooms", locale)} className="arrow-link mt-6">
-                <span>{d.seeRooms}</span>
-                <IconArrow />
+              <Link href={href("rooms", locale)} className="btn btn-secondary mt-7">
+                {d.seeFacilities}
               </Link>
             </div>
           </article>
         </li>
-      </ol>
-
-      <div className="wrap py-20 md:py-24">
-        <Steps locale={locale} title={copy.stepsTitle[locale]} />
-      </div>
-
-      <figure className="relative aspect-[16/9] w-full overflow-hidden bg-stone-100 md:aspect-[21/8]">
-        <Photo photo={photos.twoHearses} locale={locale} fill sizes="100vw" className="object-cover" position="50% 65%" />
-      </figure>
+      </ul>
 
       <ContactStrip locale={locale} />
     </>

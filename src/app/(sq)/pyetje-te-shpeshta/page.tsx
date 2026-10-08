@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Pyetje të shpeshta për funeralin | Luméa Vlorë",
-  description: "Përgjigje për pyetjet më të zakonshme rreth orarit, sallave, morgut, transportit funeral, dokumenteve dhe arkivoleve.",
+  title: "Pyetje të Shpeshta | Luméa Funeral Home Vlorë",
+  description: "Përgjigje për orarin, kontaktin, sallat e pritjes, kujdesin për të ndjerin, transportin funeral, dokumentacionin, arkivolet dhe çmimet.",
   paths: routes.faq,
   image: photos.lobbyMural,
 });

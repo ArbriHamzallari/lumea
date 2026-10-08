@@ -14,8 +14,8 @@ const content = {
     sections: [
       { h: "Çfarë nuk mbledhim", p: "Faqja nuk përdor cookies për reklama ose statistika dhe nuk krijon llogari përdoruesi." },
       {
-        h: "Formulari i kontaktit",
-        p: "Formulari nuk e dërgon informacionin në një server për të ruajtur një kërkesë. Kur shtypni butonin, hapet WhatsApp me mesazhin e përgatitur dhe ju vendosni nëse do ta dërgoni. Pasi ta dërgoni, mesazhi trajtohet sipas kushteve të WhatsApp.",
+        h: "WhatsApp",
+        p: "Faqja nuk ka formular kontakti dhe nuk ruan mesazhe. Butonat e WhatsApp hapin aplikacionin dhe ju vendosni nëse do të dërgoni mesazh. Pasi ta dërgoni, mesazhi trajtohet sipas kushteve të WhatsApp.",
       },
       {
         h: "Harta",
@@ -35,8 +35,8 @@ const content = {
     sections: [
       { h: "What we do not collect", p: "The website does not use advertising or analytics cookies and does not create user accounts." },
       {
-        h: "The contact form",
-        p: "The form does not send your information to a server to store a request. When you press the button, WhatsApp opens with the prepared message and you decide whether to send it. Once sent, the message is handled under WhatsApp’s terms.",
+        h: "WhatsApp",
+        p: "The website has no contact form and does not store messages. The WhatsApp buttons open the app and you decide whether to send a message. Once sent, the message is handled under WhatsApp’s terms.",
       },
       {
         h: "The map",

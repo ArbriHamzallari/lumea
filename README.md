@@ -26,11 +26,11 @@ All content lives in `src/content/`. Layout code never needs to change for norma
 | --- | --- |
 | Phone numbers, WhatsApp, address, map pin, Instagram, opening hours | `src/content/business.ts` |
 | Services (text, what's included, photos, SEO title/description) | `src/content/services.ts` |
-| Rooms (colour, photos, descriptions, SEO) | `src/content/rooms.ts` |
+| Rooms (photos, one-line intro, colour theme, SEO) | `src/content/rooms.ts` |
 | Questions & answers | `src/content/faqs.ts` |
 | Gallery groups on the facilities page | `src/content/gallery.ts` |
 | Photo alt texts (both languages) | `src/content/images.ts` |
-| Buttons, navigation, form labels | `src/content/dictionary.ts` |
+| Buttons, navigation, footer text | `src/content/dictionary.ts` |
 
 Every text field has both `sq` and `en`, so the two languages always carry the same facts.
 
@@ -59,6 +59,10 @@ Put the optimised JPEG in `public/images/...`, add its dimensions and blur place
 | `/privatesia` | `/en/privacy` |
 
 `/sitemap.xml` (with hreflang alternates) and `/robots.txt` are generated.
+
+## Copy rules (from the owner)
+
+Plain, calm, direct. No emotional or marketing phrases, no colour names or furniture lists for the rooms, no name meanings, no "01/02" numbering, no labels above headings that repeat them, no paragraph repeated across pages. Every page answers: what Luméa offers, where it is, how to reach it. Calls to action: "Telefononi tani", "Na shkruani në WhatsApp", "Shikoni shërbimet", "Shikoni ambientet", "Na gjeni në Google Maps", "Mësoni më shumë".
 
 ## Room colour system
 

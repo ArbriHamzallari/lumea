@@ -2,9 +2,9 @@ import type { L } from "@/lib/i18n";
 import { business } from "./business";
 
 /**
- * Frequently asked questions. Every answer is limited to facts Luméa has
- * published. Luméa is not a legal authority, so answers never describe
- * official procedures in detail — they point people to call.
+ * Frequently asked questions. Answers stay within facts Luméa has published.
+ * Luméa is not a legal authority, so answers never describe official
+ * procedures in detail — they point people to call.
  */
 
 export type Faq = { id: string; q: L; a: L; link?: { route: "rooms" | "contact" | "services"; label: L } };
@@ -13,16 +13,16 @@ const [p1, p2] = business.phones.map((p) => p.display);
 
 export const faqs: Faq[] = [
   {
-    id: "start",
-    q: { sq: "Dikush i afërt sapo ka ndërruar jetë. Çfarë duhet të bëj së pari?", en: "Someone close to me has just died. What should I do first?" },
+    id: "contact",
+    q: { sq: "Si mund të kontaktoj Luméa?", en: "How can I contact Luméa?" },
     a: {
-      sq: `Telefononi Luméa në ${p1} ose ${p2}, në çdo orë. Nuk është e nevojshme t’i keni të gjitha informacionet gati. Gjatë telefonatës do t’ju shpjegojmë çfarë duhet të bëni më tej.`,
-      en: `Call Luméa on ${p1} or ${p2} at any hour. You do not need to have everything ready. We will explain what to do next during the call.`,
+      sq: `Mund të na telefononi në ${p1} ose ${p2}. Mund të na kontaktoni edhe në WhatsApp.`,
+      en: `You can call us on ${p1} or ${p2}. You can also contact us on WhatsApp.`,
     },
   },
   {
     id: "hours",
-    q: { sq: "A jeni të hapur natën dhe në fundjavë?", en: "Are you open at night and at weekends?" },
+    q: { sq: "A jeni të hapur 24 orë?", en: "Are you open 24 hours?" },
     a: {
       sq: "Po. Luméa është e hapur 24 orë në ditë, 7 ditë në javë.",
       en: "Yes. Luméa is open 24 hours a day, 7 days a week.",
@@ -32,8 +32,8 @@ export const faqs: Faq[] = [
     id: "location",
     q: { sq: "Ku ndodheni?", en: "Where are you?" },
     a: {
-      sq: "Na gjeni në Rrugën Transballkanike, pranë ish Hipotekës, Vlorë 9401. Në faqen e kontaktit gjeni edhe hartën dhe udhëzimet.",
-      en: "You can find us on Rruga Transballkanike, near ish Hipoteka, Vlorë 9401. The contact page also includes the map and directions.",
+      sq: "Na gjeni në Rrugën Transballkanike, pranë ish Hipotekës, Vlorë 9401.",
+      en: "On Rruga Transballkanike, near ish Hipoteka, Vlorë 9401.",
     },
     link: { route: "contact", label: { sq: "Harta dhe udhëzimet", en: "Map and directions" } },
   },
@@ -41,50 +41,57 @@ export const faqs: Faq[] = [
     id: "rooms",
     q: { sq: "Sa salla pritjeje keni?", en: "How many reception rooms do you have?" },
     a: {
-      sq: "Kemi katër salla: Beata, Amara, Celeste dhe Eden. Secila ka pamje dhe ngjyrë të ndryshme.",
-      en: "We have four rooms: Beata, Amara, Celeste and Eden. Each has a different colour and appearance.",
+      sq: "Luméa ka katër salla pritjeje: Beata, Amara, Celeste dhe Eden.",
+      en: "Luméa has four reception rooms: Beata, Amara, Celeste and Eden.",
     },
-    link: { route: "rooms", label: { sq: "Shikoni sallat", en: "See the rooms" } },
   },
   {
-    id: "morgue",
-    q: { sq: "A keni ambiente morgu?", en: "Do you have mortuary facilities?" },
+    id: "care",
+    q: { sq: "A keni ambiente për kujdesin ndaj të ndjerit?", en: "Do you have facilities for the care of the deceased?" },
     a: {
-      sq: "Po. Ambientet e morgut ndodhen në të njëjtën godinë me sallat e pritjes. I ndjeri ruhet dhe përgatitet aty deri në ceremoni.",
-      en: "Yes. The mortuary facilities are in the same building as the reception rooms. The deceased is held and prepared there until the ceremony.",
+      sq: "Po. Ambientet e dedikuara për ruajtjen, përgatitjen dhe kujdesin ndaj të ndjerit ndodhen në të njëjtën godinë me sallat e pritjes.",
+      en: "Yes. Dedicated facilities for holding, preparing and caring for the deceased are in the same building as the reception rooms.",
     },
   },
   {
     id: "abroad",
-    q: { sq: "A mund ta transportoni të ndjerin jashtë Shqipërisë ose nga jashtë në Shqipëri?", en: "Can you transport the deceased abroad or bring them to Albania from another country?" },
+    q: { sq: "A ofroni transport funeral jashtë Shqipërisë?", en: "Do you provide funeral transport outside Albania?" },
     a: {
-      sq: "Po. Luméa kryen transport funeral brenda Shqipërisë dhe jashtë saj, përfshirë riatdhesimin. Na telefononi për të diskutuar hapat dhe dokumentet për rastin tuaj.",
-      en: "Yes. Luméa provides funeral transport within Albania and abroad, including repatriation. Call us to discuss the steps and documents required for your situation.",
+      sq: "Po. Luméa ofron transport funeral brenda Shqipërisë dhe jashtë vendit, përfshirë riatdhesimin. Për rastet ndërkombëtare, kërkesat dhe dokumentacioni mund të ndryshojnë sipas shtetit. Na kontaktoni për informacion mbi rastin konkret.",
+      en: "Yes. Luméa provides funeral transport within Albania and abroad, including repatriation. For international cases, requirements and paperwork can differ from country to country. Contact us for information about your case.",
     },
   },
   {
     id: "documents",
-    q: { sq: "A më ndihmoni me dokumentet?", en: "Can you help with the paperwork?" },
+    q: { sq: "A ndihmoni me dokumentacionin?", en: "Do you help with the paperwork?" },
     a: {
-      sq: "Po. Luméa ju ndihmon me procedurat në bashki dhe dokumentacionin e nevojshëm. Dokumentet zyrtare lëshohen nga institucionet përkatëse.",
-      en: "Yes. Luméa helps with municipal procedures and the required paperwork. Official documents are issued by the relevant authorities.",
+      sq: "Po. Ju ndihmojmë me procedurat dhe dokumentacionin që lidhen me shërbimin funeral dhe ju udhëzojmë për hapat përkatës.",
+      en: "Yes. We help with the procedures and paperwork involved in the funeral and guide you through the steps.",
     },
   },
   {
     id: "coffins",
     q: { sq: "A ofroni arkivole?", en: "Do you provide coffins?" },
     a: {
-      sq: "Po. Kemi arkivole në modele dhe ngjyra të ndryshme, së bashku me aksesorët përkatës.",
-      en: "Yes. We offer coffins in different styles and finishes, together with related accessories.",
+      sq: "Po. Kemi larmishmëri arkivolesh të cilësisë italiane, me çmime të ndryshme dhe të arsyeshme, si dhe aksesorë për ceremoninë.",
+      en: "Yes. We have a wide range of Italian-quality coffins, at different and reasonable prices, as well as accessories for the ceremony.",
     },
-    link: { route: "services", label: { sq: "Të gjitha shërbimet", en: "All services" } },
+  },
+  {
+    id: "visit",
+    q: { sq: "A mund të shoh ambientet para se të vij?", en: "Can I see the facilities before I come?" },
+    a: {
+      sq: "Po. Në faqen “Ambientet” mund të shikoni fotografitë e sallave, hollit, godinës dhe automjeteve.",
+      en: "Yes. On the “Facilities” page you can see photographs of the rooms, the lobby, the building and the vehicles.",
+    },
+    link: { route: "rooms", label: { sq: "Shikoni ambientet", en: "See the facilities" } },
   },
   {
     id: "prices",
-    q: { sq: "A mund t’i shoh çmimet në faqe?", en: "Can I see prices on the website?" },
+    q: { sq: "A i publikoni çmimet në website?", en: "Do you publish prices on the website?" },
     a: {
-      sq: "Çmimet nuk publikohen në faqe. Për informacion mbi koston, na telefononi dhe do t’ju tregojmë çfarë përfshin shërbimi që ju nevojitet.",
-      en: "Prices are not published on the website. For information about costs, call us and we will explain what is included in the service you need.",
+      sq: "Jo. Çmimi varet nga shërbimet që kërkohen dhe nga rasti konkret. Për informacion mbi koston, na telefononi dhe do t’ju tregojmë opsionet përkatëse.",
+      en: "No. The price depends on the services needed and on the individual case. For information about costs, call us and we will explain the options.",
     },
   },
 ];

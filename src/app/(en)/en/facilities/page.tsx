@@ -5,8 +5,8 @@ import { rooms } from "@/content/rooms";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Facilities and reception rooms | Luméa Funeral Home Vlorë",
-  description: "See Luméa’s four reception rooms in Vlorë: Beata, Amara, Celeste and Eden, together with the lobby, entrance and funeral vehicles.",
+  title: "Funeral Home in Vlorë | Luméa’s Facilities",
+  description: "Four reception rooms, a lobby and dedicated facilities for funeral services. See photographs of Luméa Funeral Home in Vlorë.",
   paths: routes.rooms,
   image: rooms[3].hero,
 });

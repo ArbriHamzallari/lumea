@@ -84,6 +84,12 @@ export const IconInstagram = ({ className = "size-5" }: P) => (
   </svg>
 );
 
+export const IconFacebook = ({ className = "size-5" }: P) => (
+  <svg {...base} className={className}>
+    <path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5Z" />
+  </svg>
+);
+
 export const IconPlay = ({ className = "size-5" }: P) => (
   <svg {...base} className={className}>
     <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />

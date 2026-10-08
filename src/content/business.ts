@@ -54,8 +54,8 @@ export const business = {
 
   social: {
     instagram: "https://www.instagram.com/lumeafuneralhome/",
-    /** The supplied Facebook link is a post inside a group, not a business page. */
-    facebook: null as string | null, // [FACEBOOK_PAGE_URL]
+    /** Luméa's Facebook page (permanent id-based address). */
+    facebook: "https://www.facebook.com/profile.php?id=61593308293717" as string | null,
   },
 
   /** Year founded — unknown, do not display until confirmed. */

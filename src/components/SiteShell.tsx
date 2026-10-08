@@ -7,7 +7,7 @@ import { buildAlternateMap } from "@/lib/alternates";
 import { siteSchema } from "@/lib/schema";
 import { HeaderNav, LangSwitch } from "./HeaderNav";
 import { Logo } from "./Logo";
-import { IconClock, IconDirections, IconExternal, IconInstagram, IconPhone, IconPin, IconWhatsApp } from "./Icons";
+import { IconClock, IconDirections, IconFacebook, IconInstagram, IconPhone, IconPin, IconWhatsApp } from "./Icons";
 import { JsonLd } from "./JsonLd";
 
 const NAV: RouteKey[] = ["services", "rooms", "about", "faq", "contact"];
@@ -53,7 +53,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
           <Link href={href("home", locale)} className="text-ink">
             <Logo />
           </Link>
-          <div className="flex items-center gap-2 lg:gap-6">
+          <div className="flex items-center gap-2 lg:gap-4 xl:gap-6">
             <HeaderNav
               items={items}
               homeHref={href("home", locale)}
@@ -62,10 +62,18 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
               locale={locale}
               labels={{ menu: d.menu, close: d.closeMenu, nav: d.mainNav, call: d.call, open24: d.open24, langLabel: d.langLabel, switchTo: d.switchTo }}
             />
-            <a href={telHref(phonePrimary.e164)} className="btn btn-primary hidden !min-h-11 !px-4 text-[0.95rem] lg:inline-flex">
-              <IconPhone className="size-4" />
-              {d.call}
-            </a>
+            <div className="hidden items-center gap-2 lg:flex">
+              <a href={telHref(phonePrimary.e164)} className="btn btn-primary !min-h-11 !px-4 text-[0.95rem]">
+                <IconPhone className="size-4" />
+                {d.call}
+              </a>
+              {wa && (
+                <a href={wa} target="_blank" rel="noopener" className="btn btn-secondary hidden !min-h-11 !px-4 text-[0.95rem] xl:inline-flex">
+                  <IconWhatsApp className="size-4" />
+                  {d.whatsapp}
+                </a>
+              )}
+            </div>
             <LangSwitch alternates={alternates} locale={locale} label={d.langLabel} switchTo={d.switchTo} className="hidden lg:flex" />
           </div>
         </div>
@@ -114,7 +122,7 @@ function Footer({ locale }: { locale: Locale }) {
   const a = business.address;
   const wa = whatsappHref();
   const year = new Date().getFullYear();
-  const pages: RouteKey[] = ["home", "services", "rooms", "about", "faq", "contact"];
+  const pages: RouteKey[] = ["services", "rooms", "about", "faq", "contact"];
 
   return (
     <footer className="bg-marble text-on-marble-muted">
@@ -123,24 +131,17 @@ function Footer({ locale }: { locale: Locale }) {
           <div className="text-on-marble [--paper:var(--marble)]">
             <Logo variant="stacked" className="items-start [&>svg]:self-start" />
           </div>
-          <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed">{d.footerAbout}</p>
-          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem]">
-            <a href={business.social.instagram} target="_blank" rel="noopener" className="inline-flex items-center gap-2 text-on-marble hover:underline">
-              <IconInstagram className="size-4" /> {d.instagram}
-            </a>
-            <a href={business.googleMapsUrl} target="_blank" rel="noopener" className="inline-flex items-center gap-2 text-on-marble hover:underline">
-              {d.googleReviews} <IconExternal />
-            </a>
-          </div>
+          <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-on-marble">{d.footerLine1}</p>
+          <p className="mt-2 max-w-sm text-[0.95rem] leading-relaxed">{d.footerLine2}</p>
+          <a href={telHref(phonePrimary.e164)} className="btn btn-on-dark mt-7">
+            <IconPhone className="size-4" />
+            {d.callNow}
+          </a>
         </div>
 
         <div className="md:col-span-4">
           <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-on-marble">{d.footerContact}</h2>
           <ul className="mt-5 space-y-4 text-[0.95rem]">
-            <li className="flex gap-3">
-              <IconClock className="mt-0.5 size-5 shrink-0 text-gold" />
-              <span className="text-on-marble">{d.open24}</span>
-            </li>
             {business.phones.map((p) => (
               <li key={p.e164} className="flex gap-3">
                 <IconPhone className="mt-0.5 size-5 shrink-0 text-gold" />
@@ -163,11 +164,21 @@ function Footer({ locale }: { locale: Locale }) {
                 {a.street}, {a.landmark[locale]}
                 <br />
                 {a.city} {a.postalCode}, {a.country[locale]}
-                <br />
-                <a href={directionsHref} target="_blank" rel="noopener" className="mt-1 inline-flex items-center gap-1.5 text-on-marble underline underline-offset-4">
-                  {d.directions} <IconExternal />
-                </a>
               </address>
+            </li>
+            {business.social.facebook && (
+              <li className="flex gap-3">
+                <IconFacebook className="mt-0.5 size-5 shrink-0 text-gold" />
+                <a href={business.social.facebook} target="_blank" rel="noopener" className="text-on-marble hover:underline">
+                  Facebook
+                </a>
+              </li>
+            )}
+            <li className="flex gap-3">
+              <IconInstagram className="mt-0.5 size-5 shrink-0 text-gold" />
+              <a href={business.social.instagram} target="_blank" rel="noopener" className="text-on-marble hover:underline">
+                Instagram
+              </a>
             </li>
           </ul>
         </div>
@@ -178,7 +189,7 @@ function Footer({ locale }: { locale: Locale }) {
             {pages.map((k) => (
               <li key={k}>
                 <Link href={href(k, locale)} className="hover:text-on-marble hover:underline">
-                  {k === "faq" ? d.nav.faqLong : d.nav[k as keyof typeof d.nav]}
+                  {d.nav[k as keyof typeof d.nav]}
                 </Link>
               </li>
             ))}

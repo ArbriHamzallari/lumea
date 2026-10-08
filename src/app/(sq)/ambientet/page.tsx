@@ -5,8 +5,8 @@ import { rooms } from "@/content/rooms";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Ambientet dhe sallat e pritjes | Luméa Funeral Home Vlorë",
-  description: "Shikoni katër sallat e pritjes të Luméa në Vlorë: Beata, Amara, Celeste dhe Eden, së bashku me hollin, hyrjen dhe automjetet funerale.",
+  title: "Shtëpi Funerale në Vlorë | Ambientet e Luméa",
+  description: "Katër salla pritjeje, holl dhe ambiente të dedikuara për shërbimet funerale. Shikoni fotografitë e ambienteve të Luméa Funeral Home në Vlorë.",
   paths: routes.rooms,
   image: rooms[3].hero,
 });

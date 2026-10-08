@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Frequently asked questions | Luméa Funeral Home Vlorë",
-  description: "Answers to common questions about opening hours, reception rooms, mortuary facilities, funeral transport, paperwork and coffins.",
+  title: "Frequently Asked Questions | Luméa Funeral Home Vlorë",
+  description: "Answers about opening hours, contact, reception rooms, care of the deceased, funeral transport, paperwork, coffins and prices.",
   paths: routes.faq,
   image: photos.lobbyMural,
 });

@@ -5,11 +5,10 @@ import { href, type L, type Locale } from "@/lib/i18n";
 import { Breadcrumbs, ContactStrip } from "@/components/Blocks";
 
 const copy = {
-  lede: {
-    sq: "Këtu gjeni përgjigje për pyetjet që na bëhen më shpesh. Nëse nuk gjeni informacionin që kërkoni, na telefononi në çdo orë.",
-    en: "Here you will find answers to the questions we are asked most often. If you cannot find what you need, call us at any hour.",
-  },
+  h1: { sq: "Pyetje të shpeshta", en: "Frequently asked questions" },
   jump: { sq: "Pyetjet", en: "Questions" },
+  moreTitle: { sq: "Keni një pyetje tjetër?", en: "Have another question?" },
+  moreText: { sq: "Na telefononi ose na shkruani në WhatsApp.", en: "Call us or message us on WhatsApp." },
 } satisfies Record<string, L>;
 
 /**
@@ -22,11 +21,8 @@ export function FaqPage({ locale }: { locale: Locale }) {
   return (
     <>
       <header className="wrap pb-12 pt-8 md:pb-16 md:pt-12">
-        <Breadcrumbs locale={locale} items={[{ name: d.nav.faqLong }]} />
-        <div className="mt-10 grid gap-8 lg:grid-cols-12">
-          <h1 className="display lg:col-span-6">{d.nav.faqLong}</h1>
-          <p className="lede lg:col-span-6 lg:pt-3">{copy.lede[locale]}</p>
-        </div>
+        <Breadcrumbs locale={locale} items={[{ name: d.nav.faq }]} />
+        <h1 className="display mt-10">{copy.h1[locale]}</h1>
       </header>
 
       <div className="wrap grid gap-12 border-t border-line pb-20 pt-12 lg:grid-cols-12 lg:gap-14 lg:pt-16">
@@ -58,7 +54,7 @@ export function FaqPage({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <ContactStrip locale={locale} />
+      <ContactStrip locale={locale} title={copy.moreTitle[locale]} text={copy.moreText[locale]} />
     </>
   );
 }

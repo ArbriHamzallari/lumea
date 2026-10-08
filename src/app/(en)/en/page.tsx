@@ -4,8 +4,8 @@ import { routes } from "@/lib/i18n";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Luméa Funeral Home Vlorë | Funeral home open 24 hours",
-  description: "Funeral home in Vlorë, open 24 hours. Four reception rooms, mortuary facilities, funeral transport in Albania and abroad, funeral arrangements and paperwork support.",
+  title: "Funeral Services in Vlorë | Luméa Funeral Home",
+  description: "Funeral services in Vlorë, available 24/7. Funeral arrangements, reception rooms, care of the deceased, funeral transport and help with paperwork.",
   paths: routes.home,
 });
 

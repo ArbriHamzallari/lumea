@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Kontakt dhe vendndodhja | Luméa Funeral Home Vlorë",
-  description: "Telefononi Luméa në +355 69 35 000 40 ose +355 69 35 000 41, 24 orë. Rruga Transballkanike, pranë ish Hipotekës, Vlorë 9401.",
+  title: "Kontakt | Luméa Funeral Home Vlorë",
+  description: "Telefononi +355 69 35 000 40 ose +355 69 35 000 41, ose na shkruani në WhatsApp. Në dispozicion 24/7. Rruga Transballkanike, pranë ish Hipotekës, Vlorë.",
   paths: routes.contact,
   image: photos.entranceNight,
 });

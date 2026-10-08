@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "en",
-  title: "Funeral services in Vlorë | Luméa Funeral Home",
-  description: "Funeral arrangements, mortuary facilities, funeral transport, coffins and paperwork support from Luméa Funeral Home in Vlorë.",
+  title: "Luméa’s Funeral Services | Vlorë",
+  description: "Funeral arrangements, care of the deceased, funeral transport in Albania and abroad, paperwork and coffins. Luméa Funeral Home, Vlorë.",
   paths: routes.services,
   image: photos.hearseWithCoffin,
 });

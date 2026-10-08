@@ -90,7 +90,7 @@ export function HeaderNav({ items, homeHref, labels, phones, alternates, locale 
     <>
       {/* Desktop */}
       <nav aria-label={labels.nav} className="hidden lg:block">
-        <ul className="flex items-center gap-1">
+        <ul className="flex items-center gap-0.5 xl:gap-1">
           {items.map((it) => {
             const active = isActive(pathname, it.href, homeHref);
             return (
@@ -98,12 +98,12 @@ export function HeaderNav({ items, homeHref, labels, phones, alternates, locale 
                 <Link
                   href={it.href}
                   aria-current={active ? "page" : undefined}
-                  className={`relative block px-3 py-2 text-[0.95rem] transition-colors ${active ? "text-ink" : "text-ink-soft hover:text-ink"}`}
+                  className={`relative block whitespace-nowrap px-2 py-2 text-[0.92rem] transition-colors xl:px-3 xl:text-[0.95rem] ${active ? "text-ink" : "text-ink-soft hover:text-ink"}`}
                 >
                   {it.label}
                   <span
                     aria-hidden
-                    className={`absolute inset-x-3 -bottom-px h-px bg-room-accent transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute inset-x-2 -bottom-px h-px xl:inset-x-3 bg-room-accent transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
                   />
                 </Link>
               </li>

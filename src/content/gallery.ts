@@ -10,19 +10,19 @@ export type GalleryGroup = { id: string; title: L; intro: L; items: Photo[] };
 export const galleryGroups: GalleryGroup[] = [
   {
     id: "jashte",
-    title: { sq: "Godina dhe hyrja", en: "The building and entrance" },
+    title: { sq: "Hyrja dhe godina", en: "The entrance and building" },
     intro: {
-      sq: "Luméa ndodhet në një godinë njëkatëshe në Rrugën Transballkanike, me tabelën LUMÉA mbi hyrje.",
-      en: "Luméa is in a single-storey building on Rruga Transballkanike, with the LUMÉA sign above the entrance.",
+      sq: "Luméa ndodhet në një godinë njëkatëshe në Rrugën Transballkanike, pranë ish Hipotekës.",
+      en: "Luméa is in a single-storey building on Rruga Transballkanike, near ish Hipoteka.",
     },
     items: [photos.entranceNight, photos.facadeDay, photos.facadeHearse, photos.entranceDoor, photos.facadeDuskVehicles],
   },
   {
     id: "brenda",
-    title: { sq: "Holli dhe korridoret", en: "The lobby and corridors" },
+    title: { sq: "Holli", en: "The lobby" },
     intro: {
-      sq: "Nga hyrja, holli dhe korridoret me mermer të çojnë te sallat.",
-      en: "From the entrance, the lobby and marble corridors lead to the rooms.",
+      sq: "Holli dhe korridoret lidhin hyrjen me sallat e pritjes dhe ambientet e tjera të godinës.",
+      en: "The lobby and corridors connect the entrance with the reception rooms and the rest of the building.",
     },
     items: [photos.corridor, photos.lobbyMural, photos.lobbyWindows, photos.lobbySeating, photos.muralDetail, photos.lounge],
   },
@@ -30,8 +30,8 @@ export const galleryGroups: GalleryGroup[] = [
     id: "automjetet",
     title: { sq: "Automjetet funerale", en: "Funeral vehicles" },
     intro: {
-      sq: "Automjetet me të cilat Luméa kryen transportin funeral.",
-      en: "The vehicles Luméa uses for funeral transport.",
+      sq: "Luméa disponon automjete për transportin funeral brenda dhe jashtë vendit.",
+      en: "Luméa has its own vehicles for funeral transport within Albania and abroad.",
     },
     items: [photos.fleet, photos.hearseWithCoffin, photos.twoHearses, photos.hearseFlowers, photos.hearseNight, photos.hearseBlack, photos.hearseCourtyard],
   },

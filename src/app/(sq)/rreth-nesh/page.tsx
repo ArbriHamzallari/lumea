@@ -5,8 +5,8 @@ import { photos } from "@/content/images";
 
 export const metadata = buildMetadata({
   locale: "sq",
-  title: "Rreth Luméa | Shtëpi funerale në Vlorë",
-  description: "Luméa Funeral Home në Vlorë është e hapur 24 orë dhe ofron salla pritjeje, ambiente morgu, transport funeral dhe ndihmë me dokumentet.",
+  title: "Rreth Luméa Funeral Home | Vlorë",
+  description: "Luméa Funeral Home është shtëpi funerale në Rrugën Transballkanike, Vlorë, e hapur 24/7. Shërbime funerale, salla pritjeje, transport dhe dokumentacion.",
   paths: routes.about,
   image: photos.facadeDuskVehicles,
 });
