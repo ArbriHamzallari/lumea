@@ -50,6 +50,24 @@ export function LangSwitch({ alternates, locale, label, switchTo, className = ""
   );
 }
 
+/** Compact language link for the mobile header: always visible, 44 px target (audit LUM-02). */
+function MobileLangLink({ alternates, locale, switchTo }: { alternates: Record<string, string>; locale: "sq" | "en"; switchTo: string }) {
+  const pathname = usePathname();
+  const target = locale === "sq" ? "en" : "sq";
+  const other = alternates[pathname] ?? (locale === "sq" ? "/en" : "/");
+  return (
+    <a
+      href={other}
+      hrefLang={target}
+      lang={target}
+      className="inline-flex h-11 min-w-11 items-center justify-center px-2 text-sm font-semibold tracking-wide text-ink-soft underline-offset-4 hover:text-ink hover:underline lg:hidden"
+    >
+      {target.toUpperCase()}
+      <span className="sr-only"> — {switchTo}</span>
+    </a>
+  );
+}
+
 export function HeaderNav({ items, homeHref, labels, phones, alternates, locale }: Props) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -112,6 +130,8 @@ export function HeaderNav({ items, homeHref, labels, phones, alternates, locale 
         </ul>
       </nav>
 
+      <MobileLangLink alternates={alternates} locale={locale} switchTo={labels.switchTo} />
+
       {/* Mobile trigger */}
       <button
         ref={buttonRef}
@@ -130,9 +150,9 @@ export function HeaderNav({ items, homeHref, labels, phones, alternates, locale 
         id="mobile-menu"
         ref={panelRef}
         hidden={!open}
-        className="fixed inset-x-0 top-[var(--header-h)] bottom-0 z-40 overflow-y-auto border-t border-line bg-paper lg:hidden"
+        className="fixed inset-x-0 top-[var(--header-h)] bottom-[calc(var(--action-h)+env(safe-area-inset-bottom))] z-40 overflow-y-auto overscroll-contain border-t border-line bg-paper lg:hidden"
       >
-        <nav aria-label={labels.nav} className="wrap py-6">
+        <nav aria-label={labels.nav} className="wrap pb-10 pt-6">
           <ul className="divide-y divide-line border-y border-line">
             {items.map((it) => {
               const active = isActive(pathname, it.href, homeHref);

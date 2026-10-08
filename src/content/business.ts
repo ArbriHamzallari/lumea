@@ -82,5 +82,24 @@ export const directionsHref = `https://www.google.com/maps/dir/?api=1&destinatio
 export const mapEmbedSrc = (lang: "sq" | "en") =>
   `https://www.google.com/maps?q=${business.geo.lat},${business.geo.lng}&hl=${lang}&z=17&output=embed`;
 
-/** Site URL — set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.yourdomain.al). */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+/**
+ * Public site URL, used for canonical links, hreflang, the sitemap, robots.txt,
+ * Open Graph images and structured data.
+ *
+ * Set in `.env.production` (committed — it is public, not a secret). A
+ * production build fails if it is missing or not an absolute https URL, so the
+ * site can never again be published with localhost links (audit LUM-01).
+ * Development falls back to the local dev server.
+ */
+function resolveSiteUrl() {
+  const value = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+  if (process.env.NODE_ENV !== "production") return value || "http://localhost:3000";
+  if (!value || !/^https:\/\/[^/\s]+$/.test(value) || /localhost|127\.0\.0\.1/.test(value)) {
+    throw new Error(
+      `NEXT_PUBLIC_SITE_URL must be the public https origin of the site (e.g. https://www.lumeafuneral.com) for production builds. Got: ${JSON.stringify(value ?? null)}`,
+    );
+  }
+  return value;
+}
+
+export const siteUrl = resolveSiteUrl();

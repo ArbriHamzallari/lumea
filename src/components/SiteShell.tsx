@@ -201,9 +201,12 @@ function Footer({ locale }: { locale: Locale }) {
           <p>
             © {year} {business.name}. {d.rights}
           </p>
-          <Link href={href("privacy", locale)} className="hover:text-on-marble hover:underline">
-            {d.nav.privacy}
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link href={href("privacy", locale)} className="hover:text-on-marble hover:underline">
+              {d.nav.privacy}
+            </Link>
+            <LangSwitch alternates={buildAlternateMap()} locale={locale} label={d.langLabel} switchTo={d.switchTo} className="[&_.text-ink]:text-on-marble [&_a]:text-on-marble-muted [&_a:hover]:text-on-marble" />
+          </div>
         </div>
       </div>
     </footer>
