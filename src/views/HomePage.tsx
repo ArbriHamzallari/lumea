@@ -70,26 +70,49 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      {/* HERO ---------------------------------------------------------- */}
-      <section className="border-b border-line">
-        <div className="wrap grid gap-8 pb-12 pt-8 md:pt-12 lg:grid-cols-12 lg:gap-14 lg:py-16">
-          <div className="flex flex-col justify-center lg:col-span-6 lg:py-6">
-            <h1 className="display">
+      {/* HERO ----------------------------------------------------------
+          Full-width photograph of Luméa's own entrance at dusk, with the
+          text set over it. Phones and tablets: the sign stays visible in
+          the band above the text, which sits on a bottom gradient.
+          Desktop: the photo starts 22% from the left and fades in under the
+          dark text side, so the sign and entrance sit fully on the right,
+          clear of the headline. The photo is a next/image (AVIF/WebP, sized
+          per viewport, preloaded as the LCP image). */}
+      <section
+        aria-labelledby="hero-title"
+        className="relative overflow-hidden bg-marble text-on-marble [--hero-band:clamp(10rem,32svh,16rem)] [--room-accent:var(--on-marble)]"
+      >
+        {/* Below lg the photo covers a band tied to the space above the
+            headline, so the LUMÉA sign always shows above the text; it fades
+            into the dark background behind the text. */}
+        <div className="absolute inset-x-0 top-[calc(var(--hero-band)*-0.22)] h-[calc(var(--hero-band)*2)] lg:inset-y-0 lg:left-[22%] lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,black_22%)]">
+          <Photo
+            photo={photos.facadeDusk}
+            locale={locale}
+            fill
+            preload
+            sizes="(min-width: 1024px) 78vw, 100vw"
+            className="object-cover object-[85%_35%] lg:object-[40%_45%]"
+          />
+          <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(to_bottom,transparent,var(--marble))] lg:hidden" />
+        </div>
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(18_16_14/0.15)_0%,rgb(18_16_14/0.3)_calc(var(--hero-band)*0.8),rgb(18_16_14/0.78)_calc(var(--hero-band)*1.15),rgb(18_16_14/0.85)_100%)] lg:bg-[linear-gradient(to_right,rgb(18_16_14/0.9)_0%,rgb(18_16_14/0.86)_40%,rgb(18_16_14/0.7)_50%,rgb(18_16_14/0.38)_60%,rgb(18_16_14/0.12)_75%,rgb(18_16_14/0.06)_100%)]"
+        />
+        <div className="wrap relative flex flex-col justify-end pb-10 pt-[var(--hero-band)] sm:pb-14 lg:min-h-[min(44rem,calc(100svh-7.5rem))] lg:justify-center lg:py-20">
+          <div className="max-w-xl lg:max-w-[31rem] xl:max-w-[34rem]">
+            <h1 id="hero-title" className="display text-white">
               <span className="block">{c("h1")}</span> <span className="block">{c("h1b")}</span> <span className="block">{c("h1c")}</span>
             </h1>
-            <p className="lede mt-6 max-w-xl">{c("lede")}</p>
-            <CallButtons locale={locale} className="mt-8" />
-            <a href="#vendndodhja" className="mt-6 inline-flex items-start gap-2 self-start text-[0.98rem] text-ink-soft hover:text-ink">
-              <IconPin className="mt-0.5 size-5 shrink-0 text-bronze" />
+            <p className="lede mt-6 text-on-marble">{c("lede")}</p>
+            <CallButtons locale={locale} tone="dark" className="mt-8" />
+            <a href="#vendndodhja" className="mt-6 inline-flex items-start gap-2 text-[0.98rem] text-on-marble hover:text-white hover:underline">
+              <IconPin className="mt-0.5 size-5 shrink-0 text-gold" />
               <span>
                 {a.street}, {a.landmark[locale]}, {a.city}
               </span>
             </a>
-          </div>
-          <div className="lg:col-span-6">
-            <div className="inlay relative aspect-[4/3] overflow-hidden bg-stone-100 xl:aspect-[5/4]">
-              <Photo photo={photos.facadeDusk} locale={locale} fill preload sizes="(min-width: 1024px) 46vw, 100vw" className="object-cover" position="62% 60%" />
-            </div>
           </div>
         </div>
       </section>

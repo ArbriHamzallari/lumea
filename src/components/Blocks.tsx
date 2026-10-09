@@ -105,17 +105,30 @@ export function HelpLedger({ locale, hours = true, addressRow = true }: { locale
 }
 
 /** The two main calls to action, used together across the site. */
-export function CallButtons({ locale, className = "", waText }: { locale: Locale; className?: string; waText?: string }) {
+export function CallButtons({
+  locale,
+  className = "",
+  waText,
+  tone = "light",
+}: {
+  locale: Locale;
+  className?: string;
+  waText?: string;
+  /** "dark" = placed over a photograph (home hero). */
+  tone?: "light" | "dark";
+}) {
   const d = t(locale);
   const wa = whatsappHref(waText);
+  const primary = tone === "dark" ? "btn bg-paper text-ink hover:bg-white" : "btn btn-primary";
+  const secondary = tone === "dark" ? "btn btn-on-dark" : "btn btn-secondary";
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
-      <a href={telHref(business.phones[0].e164)} className="btn btn-primary">
+    <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
+      <a href={telHref(business.phones[0].e164)} className={`${primary} whitespace-nowrap`}>
         <IconPhone className="size-4" />
         {d.callNow}
       </a>
       {wa && (
-        <a href={wa} target="_blank" rel="noopener" className="btn btn-secondary">
+        <a href={wa} target="_blank" rel="noopener" className={`${secondary} whitespace-nowrap`}>
           <IconWhatsApp className="size-4" />
           {d.writeWhatsapp}
         </a>
