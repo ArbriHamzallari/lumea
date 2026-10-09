@@ -27,28 +27,28 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
       </a>
       <JsonLd data={siteSchema(locale)} />
 
-      {/* Utility line — availability and both numbers, always visible on desktop */}
-      <div className="hidden border-b border-line bg-stone-50 text-[0.85rem] text-ink-soft lg:block">
-        <div className="wrap flex h-9 items-center justify-between gap-6">
-          <p className="flex items-center gap-2">
-            <IconClock className="size-4 text-bronze" />
-            {d.open24}
-            <span aria-hidden className="mx-2 text-line-strong">·</span>
-            <span>
-              {a.street}, {a.landmark[locale]}, {a.city}
-            </span>
-          </p>
-          <p className="flex items-center gap-5">
-            {phones.map((p) => (
-              <a key={p.href} href={p.href} className="font-semibold text-ink hover:text-bronze">
-                {p.display}
-              </a>
-            ))}
-          </p>
+      <header className="site-header sticky top-0 z-50 border-b border-line bg-paper lg:-top-[calc(2.25rem+1px)]">
+        {/* Utility line — availability and both numbers on desktop. Part of the banner
+            landmark; the negative sticky offset lets it scroll away while the main row stays. */}
+        <div className="hidden border-b border-line bg-stone-50 text-[0.85rem] text-ink-soft lg:block">
+          <div className="wrap flex h-9 items-center justify-between gap-6">
+            <p className="flex items-center gap-2">
+              <IconClock className="size-4 text-bronze" />
+              {d.open24}
+              <span aria-hidden className="mx-2 text-line-strong">·</span>
+              <span>
+                {a.street}, {a.landmark[locale]}, {a.city}
+              </span>
+            </p>
+            <p className="flex items-center gap-5">
+              {phones.map((p) => (
+                <a key={p.href} href={p.href} className="font-semibold text-ink hover:text-bronze">
+                  {p.display}
+                </a>
+              ))}
+            </p>
+          </div>
         </div>
-      </div>
-
-      <header className="sticky top-0 z-50 border-b border-line bg-paper">
         <div className="wrap flex h-[var(--header-h)] items-center justify-between gap-4 lg:h-[4.75rem]">
           <Link href={href("home", locale)} className="text-ink">
             <Logo />
@@ -68,9 +68,9 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
                 {d.call}
               </a>
               {wa && (
-                <a href={wa} target="_blank" rel="noopener" className="btn btn-secondary hidden !min-h-11 !px-4 text-[0.95rem] xl:inline-flex">
+                <a href={wa} target="_blank" rel="noopener" className="btn btn-secondary !min-h-11 !min-w-11 !px-3 text-[0.95rem] xl:!px-4">
                   <IconWhatsApp className="size-4" />
-                  {d.whatsapp}
+                  <span className="sr-only xl:not-sr-only">{d.whatsapp}</span>
                 </a>
               )}
             </div>
@@ -88,7 +88,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
       {/* Mobile action bar: call, WhatsApp, directions — always one tap away */}
       <nav
         aria-label={d.actionBar}
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-paper pb-[env(safe-area-inset-bottom)] lg:hidden"
+        className="action-bar fixed inset-x-0 bottom-0 z-50 border-t border-line bg-paper pb-[env(safe-area-inset-bottom)] lg:hidden"
       >
         <ul className={`grid h-[var(--action-h)] ${wa ? "grid-cols-3" : "grid-cols-2"} divide-x divide-line`}>
           <li>

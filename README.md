@@ -8,13 +8,11 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build (all pages prerendered)
 npm start
+npm run lint
+npm run typecheck  # generates route types, then tsc
 ```
 
-Set the real domain before deploying (used for canonical URLs, hreflang, sitemap, Open Graph and structured data):
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://www.your-domain.al
-```
+The public site URL (canonical links, hreflang, sitemap, robots.txt, Open Graph, structured data) comes from `NEXT_PUBLIC_SITE_URL` in `.env.production` (`https://www.lumeafuneral.com`). A production build fails if it is missing, not https, or points to localhost.
 
 ---
 
@@ -24,7 +22,7 @@ All content lives in `src/content/`. Layout code never needs to change for norma
 
 | What | File |
 | --- | --- |
-| Phone numbers, WhatsApp, address, map pin, Instagram, opening hours | `src/content/business.ts` |
+| Phone numbers, WhatsApp, address, map pin, Facebook, Instagram, opening hours | `src/content/business.ts` |
 | Services (text, what's included, photos, SEO title/description) | `src/content/services.ts` |
 | Rooms (photos, one-line intro, colour theme, SEO) | `src/content/rooms.ts` |
 | Questions & answers | `src/content/faqs.ts` |
@@ -34,7 +32,7 @@ All content lives in `src/content/`. Layout code never needs to change for norma
 
 Every text field has both `sq` and `en`, so the two languages always carry the same facts.
 
-**Values set to `null`** (email, Facebook page, founding year, legal name, room capacity, accessibility) are hidden automatically. Fill in a real value and it appears everywhere it belongs, including the structured data.
+**Values set to `null`** (email, founding year, legal name, room capacity, accessibility) are hidden automatically. Fill in a real value and it appears everywhere it belongs, including the structured data.
 
 ### Adding a room
 
@@ -72,11 +70,14 @@ Each room has one source colour (`primaryColor`), sampled from its chairs, sofa 
 
 ## Open questions for Luméa (please confirm)
 
-1. **Address**: the owner's brief and Luméa's Instagram say *Rruga Transballkanike, pranë ish Hipotekës*. The Google Business Profile says *Rruga Gjergj Kastrioti*. The website uses Transballkanike. Google and the website should match (NAP consistency).
+1. **Address**: the owner's brief and Luméa's Instagram say *Rruga Transballkanike, pranë ish-Hipotekës*. The Google Business Profile says *Rruga Gjergj Kastrioti*. The website uses Transballkanike. Google and the website should match (NAP consistency).
 2. **WhatsApp**: assumed to be +355 69 35 000 40. Confirm it is active on WhatsApp, or set `whatsapp: null`.
-3. **Domain**: set `NEXT_PUBLIC_SITE_URL`, then add the website URL to the Google Business Profile (currently empty).
+3. **Google Business Profile**: add https://www.lumeafuneral.com as the website, and submit the sitemap in Google Search Console.
 4. **Logo**: the mark in `src/components/Logo.tsx` is a faithful SVG redraw. Replace it with the official vector file.
-5. **Email, Facebook page**: the Facebook link supplied is a post in a group, not a business page.
+5. **Email**: none supplied, so none is shown. (Facebook: the page link is in `business.ts`.)
 6. **Coffin photographs in the room folders** (`*_n.jpg`, square): these are 3D renders, not photographs (curtains and walls don't match the real rooms), so they are not used. The `IMG_672x.JPG` collages and `IMG_3100` (bedroom) are not used either.
 7. **Photos from the Google Business Profile** are used (marked `source: "google-profile"` in `images.ts`). Confirm Luméa owns the rights or took them.
 8. **Not yet supplied, so not shown**: room capacities, parking, accessibility details, team, history, prices, areas served.
+9. **Coffins**: the site says only "different models and prices". If the coffins are made in Italy (not only Italian style), that can be added back.
+
+The site has no contact form. Visitors call, write on WhatsApp or use Google Maps.

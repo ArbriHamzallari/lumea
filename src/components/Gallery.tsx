@@ -152,10 +152,14 @@ function Lightbox({
       else if (e.key === "ArrowRight") go(1);
       else if (e.key === "ArrowLeft") go(-1);
       else if (e.key === "Tab" && ref.current) {
-        const f = ref.current.querySelectorAll<HTMLElement>("button");
+        // Only buttons that are rendered: the prev/next pairs swap with the breakpoint.
+        const f = [...ref.current.querySelectorAll<HTMLElement>("button")].filter((b) => b.getClientRects().length > 0);
         const first = f[0];
         const last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
+        if (!ref.current.contains(document.activeElement)) {
+          e.preventDefault();
+          (e.shiftKey ? last : first).focus();
+        } else if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
           last.focus();
         } else if (!e.shiftKey && document.activeElement === last) {

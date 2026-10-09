@@ -18,7 +18,6 @@
   --ink-soft: #423c35;
   --muted: #625a50;
   --gold: #b08d57;
-  --gold-deep: #9a7845; /* gold for large text — 3.8:1 on ivory */
   --bronze: #7a5a2b;
   --marble: #1a1e1c;
   --on-marble: #ece6da;
@@ -47,7 +46,6 @@
   --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
   --color-gold: var(--gold);
-  --color-gold-deep: var(--gold-deep);
   --color-bronze: var(--bronze);
   --color-marble: var(--marble);
   --color-on-marble: var(--on-marble);
@@ -168,9 +166,6 @@ p {
     line-height: 1.6;
     color: var(--ink-soft);
   }
-  .prose-lumea p + p {
-    margin-top: 1em;
-  }
 
   /* Buttons: rectangular, generous, never pill-shaped */
   .btn {
@@ -271,10 +266,6 @@ p {
       inset: 1.1rem;
     }
   }
-
-  .hairline {
-    border-color: var(--room-line);
-  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -341,9 +332,6 @@ p {
 .enter {
   animation: fade-up 520ms cubic-bezier(0.2, 0, 0, 1) both;
 }
-.enter-delay {
-  animation-delay: 90ms;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -353,5 +341,27 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Phone landscape: the header scrolls away (it returns while the menu is open)
+   and the action bar sits on one line, so fixed chrome stays under 20% of the
+   screen. Targets stay at least 44 px. Unlayered so it overrides the utilities. */
+@media (max-width: 1023px) and (max-height: 480px) {
+  :root {
+    --action-h: 3rem;
+  }
+  html {
+    scroll-padding-top: 1rem;
+  }
+  .site-header {
+    position: relative;
+  }
+  .site-header:has(#mobile-menu:not([hidden])) {
+    position: sticky;
+  }
+  .action-bar a {
+    flex-direction: row;
+    gap: 0.5rem;
   }
 }
