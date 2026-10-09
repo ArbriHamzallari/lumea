@@ -1,7 +1,7 @@
 import { business, siteUrl } from "@/content/business";
 import { photos } from "@/content/images";
 import { services } from "@/content/services";
-import { routes, childHref, type Locale } from "./i18n";
+import { childHref, type Locale } from "./i18n";
 import { abs } from "./seo";
 
 /**
@@ -26,7 +26,8 @@ export function siteSchema(locale: Locale) {
     additionalType: "https://www.wikidata.org/wiki/Q1466031",
     name: business.name,
     alternateName: ["Luméa Funeral Home", "Luméa Shtëpi Funerale Vlorë"],
-    url: abs(routes.home[locale]),
+    // One URL per @id, whatever the page language (audit LUM-26)
+    url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     image: [abs(photos.facadeDusk.src), abs(photos.entranceNight.src), abs(photos.fleet.src)],
     telephone: business.phones[0].e164,
