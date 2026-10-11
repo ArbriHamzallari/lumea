@@ -73,7 +73,7 @@ Each room has one source colour (`primaryColor`), sampled from its chairs, sofa 
 1. **Address**: the owner's brief and Luméa's Instagram say *Rruga Transballkanike, pranë ish-Hipotekës*. The Google Business Profile says *Rruga Gjergj Kastrioti*. The website uses Transballkanike. Google and the website should match (NAP consistency).
 2. **WhatsApp**: assumed to be +355 69 35 000 40. Confirm it is active on WhatsApp, or set `whatsapp: null`.
 3. **Google Business Profile**: add https://www.lumeafuneral.com as the website, and submit the sitemap in Google Search Console.
-4. **Logo**: the mark in `src/components/Logo.tsx` is a faithful SVG redraw. Replace it with the official vector file.
+4. **Logo**: the mark (rays, wings, flame) is cut from the logo the owner supplied, as transparent WebP files in `public/images/site/logo-mark*.webp` (a light and a dark-background version). A vector file (SVG/AI/PDF) from the designer would be sharper at large sizes. The favicon, Apple icon and `logo.png` (structured data) are built from the same mark.
 5. **Email**: none supplied, so none is shown. (Facebook: the page link is in `business.ts`.)
 6. **Coffin photographs in the room folders** (`*_n.jpg`, square): these are 3D renders, not photographs (curtains and walls don't match the real rooms), so they are not used. The `IMG_672x.JPG` collages and `IMG_3100` (bedroom) are not used either.
 7. **Photos from the Google Business Profile** are used (marked `source: "google-profile"` in `images.ts`). Confirm Luméa owns the rights or took them.
@@ -81,3 +81,7 @@ Each room has one source colour (`primaryColor`), sampled from its chairs, sofa 
 9. **Coffins**: the site says only "different models and prices". If the coffins are made in Italy (not only Italian style), that can be added back.
 
 The site has no contact form. Visitors call, write on WhatsApp or use Google Maps.
+
+### Adding a video to a service page
+
+Copy the MP4 (and a poster frame saved as WebP, same size) into `public/video/`, then add `clip("name", { sq: "…", en: "…" })` to the service's `videos` in `src/content/services.ts`. The label should describe only what the clip shows. Clips are muted by default and load only when played.

@@ -85,6 +85,7 @@ const sq = {
     includes: "Çfarë përfshin",
     faq: "Pyetje për këtë shërbim",
     related: "Shërbime të tjera",
+    videos: "Videot",
   },
   notFound: {
     title: "Kjo faqe nuk u gjet",
@@ -173,6 +174,7 @@ const en: Dict = {
     includes: "What it includes",
     faq: "Questions about this service",
     related: "Other services",
+    videos: "Videos",
   },
   notFound: {
     title: "This page could not be found",

@@ -91,6 +91,27 @@ export function ServicePage({ service: s, locale }: { service: Service; locale: 
         </section>
       )}
 
+      {s.videos && s.videos.length > 0 && (
+        <section aria-labelledby="svc-videos" className="border-t border-line bg-stone-50">
+          <div className="wrap py-16 md:py-20">
+            <h2 id="svc-videos" className="h2">
+              {d.service.videos}
+            </h2>
+            <ul className={`mt-8 grid grid-cols-2 gap-3 md:gap-4 ${s.videos.length <= 2 ? "max-w-md" : "md:grid-cols-3 lg:grid-cols-5"}`}>
+              {s.videos.map((v) => (
+                <li key={v.src}>
+                  <div className="p-1.5 ring-1 ring-line">
+                    <video className="aspect-[464/832] w-full bg-stone-100 object-cover" controls muted playsInline preload="none" poster={v.poster} aria-label={v.label[locale]}>
+                      <source src={v.src} type="video/mp4" />
+                    </video>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {faqs.length > 0 && (
         <section aria-labelledby="svc-faq" className="border-t border-line">
           <div className="wrap grid gap-8 py-16 md:py-20 lg:grid-cols-12 lg:gap-14">

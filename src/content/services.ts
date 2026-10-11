@@ -13,6 +13,11 @@ import { photos, type Photo } from "./images";
 
 export type ServiceId = "organizimi" | "kujdesi" | "transporti" | "dokumentacioni" | "arkivolet";
 
+/** A short clip shown on the service page. `label` says what the clip shows (read by screen readers). */
+export type ServiceVideo = { src: string; poster: string; label: L };
+
+const clip = (name: string, label: L): ServiceVideo => ({ src: `/video/${name}.mp4`, poster: `/video/${name}-poster.webp`, label });
+
 export type Service = {
   id: ServiceId;
   slug: L;
@@ -30,6 +35,8 @@ export type Service = {
   /** Optional practical note on the service page. */
   note?: L;
   photos: Photo[];
+  /** Optional clips, shown after the photographs. */
+  videos?: ServiceVideo[];
   faqIds: string[];
   related: ServiceId[];
   seoTitle: L;
@@ -65,6 +72,13 @@ export const services: Service[] = [
       { sq: "Procedurat dhe dokumentacioni", en: "Paperwork and procedures" },
     ],
     photos: [photos.coffinFlowersBeata, photos.corridor],
+    videos: [
+      clip("ceremonia-1", { sq: "Arkivol me lule në një sallë pritjeje", en: "A coffin with flowers in a reception room" }),
+      clip("ceremonia-2", { sq: "Arkivol prej druri të çelët me lule në një sallë pritjeje", en: "A light wooden coffin with flowers in a reception room" }),
+      clip("ceremonia-3", { sq: "Pamje e një salle pritjeje me një arkivol me lule", en: "A view of a reception room with a coffin and flowers" }),
+      clip("ceremonia-4", { sq: "Pamje e dritares dhe e një salle pritjeje me një arkivol me lule", en: "The window and a reception room with a coffin and flowers" }),
+      clip("ceremonia-5", { sq: "Lule mbi një arkivol në një sallë pritjeje", en: "Flowers on a coffin in a reception room" }),
+    ],
     faqIds: ["rooms", "hours", "prices"],
     related: ["kujdesi", "transporti", "dokumentacioni"],
     seoTitle: {
@@ -143,6 +157,12 @@ export const services: Service[] = [
       { sq: "Ndihmë për riatdhesimin dhe procedurat përkatëse", en: "Help with repatriation and the related procedures" },
     ],
     photos: [photos.hearseWithCoffin, photos.twoHearses, photos.hearseNight, photos.fleet],
+    videos: [
+      clip("transporti-1", { sq: "Arkivol me lule në automjetin funeral", en: "A coffin with flowers in the funeral vehicle" }),
+      clip("transporti-2", { sq: "Lule dhe arkivol në automjetin funeral", en: "Flowers and a coffin in the funeral vehicle" }),
+      clip("transporti-3", { sq: "Hyrja e Luméa dhe automjeti funeral me arkivol", en: "The Luméa entrance and the funeral vehicle with a coffin" }),
+      clip("transporti-4", { sq: "Automjeti funeral i Luméa, pamje e përparme", en: "Luméa’s funeral vehicle, seen from the front" }),
+    ],
     faqIds: ["abroad", "documents"],
     related: ["dokumentacioni", "organizimi"],
     seoTitle: {
@@ -220,6 +240,10 @@ export const services: Service[] = [
       { sq: "Aksesorë për ceremoninë", en: "Accessories for the ceremony" },
     ],
     photos: [photos.coffinDisplay, photos.coffinFlowersBeata],
+    videos: [
+      clip("ceremonia-1", { sq: "Arkivol me lule në një sallë pritjeje", en: "A coffin with flowers in a reception room" }),
+      clip("ceremonia-2", { sq: "Arkivol prej druri të çelët me lule në një sallë pritjeje", en: "A light wooden coffin with flowers in a reception room" }),
+    ],
     faqIds: ["coffins", "prices"],
     related: ["organizimi", "transporti"],
     seoTitle: {

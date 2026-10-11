@@ -129,7 +129,7 @@ function Footer({ locale }: { locale: Locale }) {
       <div className="wrap grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-5">
           <div className="text-on-marble [--paper:var(--marble)]">
-            <Logo variant="stacked" className="items-start [&>svg]:self-start" />
+            <Logo variant="stacked" onDark className="items-start [&>img]:self-start" />
           </div>
           <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-on-marble">{d.footerLine1}</p>
           <p className="mt-2 max-w-sm text-[0.95rem] leading-relaxed">{d.footerLine2}</p>
